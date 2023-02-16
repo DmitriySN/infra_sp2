@@ -47,7 +47,7 @@ pip install -r api_yamdb/requirements.txt
 
 Выполнить миграции:
 
-В settings.py изменить настройки на сервер баз данных SQLite или установить и настроить PostgreSQL
+В settings.py изменить настройки на сервер баз данных SQLite, по умолчанию установлено на PostgreSQL
 
 ```
 cd api_yamdb

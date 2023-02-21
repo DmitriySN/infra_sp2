@@ -59,3 +59,33 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+### Запуск проекта в контейнерах docker-compose
+
+Запустить терминал перейти в каталог с файлом /infra/docker-compose.yaml
+пересобрать контейнеры и запустить
+
+```
+docker-compose up -d --build
+```
+
+Выполнить миграции, создание суперпользователя и сгененировать статику
+
+```
+docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py createsuperuser
+docker-compose exec web python manage.py collectstatic --no-input
+```
+
+Открыть в браузере
+
+```
+http://localhost/admin/
+```
+
+Остановить контейнеры после проверки работоспособности
+
+```
+docker-compose down -v
+```
+

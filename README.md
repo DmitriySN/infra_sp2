@@ -44,6 +44,7 @@ docker-compose up -d --build
 Выполнить миграции, создание суперпользователя и сгененировать статику
 
 ```
+docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py collectstatic --no-input
@@ -137,8 +138,6 @@ pip install -r api_yamdb/requirements.txt
 ```
 
 Выполнить миграции:
-
-В settings.py изменить настройки на сервер баз данных SQLite, по умолчанию установлено на PostgreSQL
 
 ```
 cd api_yamdb

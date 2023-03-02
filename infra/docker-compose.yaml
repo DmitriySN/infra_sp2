@@ -8,6 +8,9 @@ services:
       - /var/lib/postgresql/data/
     env_file:
       - ./.env
+    ports:
+      - "5432:5432"
+
   web:
     container_name: api_yamdb_django
     build: ../api_yamdb/
